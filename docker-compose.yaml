@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  bot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongorestore.sh:/docker-entrypoint-initdb.d/mongorestore.sh
+      - ./db_dump:/db_dump
