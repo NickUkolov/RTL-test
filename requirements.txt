@@ -1,0 +1,4 @@
+motor
+aiogram
+pydantic
+pydantic-settings
