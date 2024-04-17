@@ -1,4 +1,4 @@
-motor
-aiogram
-pydantic
-pydantic-settings
+motor==3.4.0
+aiogram==3.4.1
+pydantic==2.5.3
+pydantic-settings==2.2.1
