@@ -1,4 +1,5 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
+from typing import Dict
 
 from motor.motor_asyncio import AsyncIOMotorClient
 
@@ -14,7 +15,7 @@ class Database:
         self._db = self._client.get_database(db_name)
         self.collection = self._db.get_collection(collection_name)
 
-    async def aggregate_data(self, dt_from, dt_upto, group_type):
+    async def aggregate_data(self, dt_from: datetime, dt_upto: datetime, group_type: str) -> Dict[str, list]:
         pipeline = [
             {"$match": {"dt": {"$gte": dt_from, "$lte": dt_upto}}},
             {
